@@ -1,0 +1,35 @@
+CONFIG_NAME: 'DCGAN'
+
+
+DATASET: 
+    NAME: 'UNIFESP'
+    DIR: '../../DataBase/Unifesp/v2/cropped'
+    HEIGHT_PXL: 233
+    WIDTH_PXL: 450
+    CHANNEL: 3
+    OPEN_BOX: 0
+    WORKERS: 8
+
+
+RETINA_FACE:
+    MODEL: './util/RFace/model/R50'
+    GPU_ID: -1
+    NETWORK: 'net3'
+    THRESH: 0.8
+
+MODEL:
+    Z: 100
+    FEATURE_MAPS_G: 32 # CHANGE
+    FEATURE_MAPS_D: 32 # CHANGE
+
+
+TRAIN:
+    BATCH_SIZE: 64
+    MAX_EPOCH: 5000 # -1 is to inf training loop
+    NUMBER_GPU: 2 # Number of GPUs available. Use 0 for CPU mode.
+    
+    LEARNING_RATE: 0.0002
+    BETA1: 0.5
+    SMOOTHING: .9
+
+    FREQUENCY_TENSORB: 25 
